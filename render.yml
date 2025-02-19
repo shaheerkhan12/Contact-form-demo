@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: meteor-backend
+    env: node
+    plan: free
+    buildCommand: |
+      curl https://install.meteor.com/ | sh
+      meteor npm install
+    startCommand: meteor --port $PORT
+    envVars:
+      - key: MONGO_URL
+        value: "your-mongodb-url"
+      - key: ROOT_URL
+        value: "https://your-app.onrender.com"
